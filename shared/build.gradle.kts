@@ -30,7 +30,7 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation ("io.ktor:ktor-client-core:1.5.4")
+                implementation ("io.ktor:ktor-client-core:1.6.1")
                 implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0")
             }
         }
