@@ -43,7 +43,7 @@ kotlin {
 
         val androidMain by getting {
             dependencies {
-                implementation("io.ktor:ktor-client-android:1.5.4")
+                implementation("io.ktor:ktor-client-android:1.6.1")
                 implementation("com.google.android.material:material:1.4.0")
             }
         }
@@ -56,7 +56,7 @@ kotlin {
         }
         val iosMain by getting {
             dependencies {
-                implementation(kotlin("io.ktor:ktor-client-ios:1.5.4"))
+                implementation("io.ktor:ktor-client-ios:1.6.1")
             }
         }
         val iosTest by getting
@@ -69,8 +69,6 @@ android {
     defaultConfig {
         minSdkVersion(21)
         targetSdkVersion(30)
-        versionCode = 1
-        versionName = "1.0"
     }
     buildTypes {
         getByName("release") {
