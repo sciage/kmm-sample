@@ -11,7 +11,6 @@ version = "1.0-SNAPSHOT"
 repositories {
     gradlePluginPortal()
     google()
-    jcenter()
     mavenCentral()
 }
 kotlin {
@@ -24,7 +23,12 @@ kotlin {
         }
     }
     sourceSets {
-        val commonMain by getting
+        val commonMain by getting {
+            dependencies {
+                implementation ("io.ktor:ktor-client-core:1.5.4")
+                implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0")
+            }
+        }
         val commonTest by getting {
             dependencies {
                 implementation(kotlin("test-common"))
@@ -33,7 +37,8 @@ kotlin {
         }
         val androidMain by getting {
             dependencies {
-                implementation("com.google.android.material:material:1.2.0")
+                implementation("io.ktor:ktor-client-android:1.5.4")
+                implementation("com.google.android.material:material:1.4.0")
             }
         }
         val androidTest by getting {
@@ -42,16 +47,20 @@ kotlin {
                 implementation("junit:junit:4.12")
             }
         }
-        val iosMain by getting
+        val iosMain by getting {
+            dependencies {
+                implementation(kotlin("io.ktor:ktor-client-ios:1.5.4"))
+            }
+        }
         val iosTest by getting
     }
 }
 android {
-    compileSdkVersion(29)
+    compileSdkVersion(30)
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     defaultConfig {
         minSdkVersion(24)
-        targetSdkVersion(29)
+        targetSdkVersion(30)
         versionCode = 1
         versionName = "1.0"
     }
